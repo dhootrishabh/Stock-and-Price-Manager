@@ -1,0 +1,25 @@
+body{
+	background-color: #ff6666;
+}
+.box-head{
+	background-color: #ff6666;
+	color: white;
+	font-size: 36px;
+	font-family: Calibri;
+	text-align: left;
+}
+.close{
+	text-align: right;
+}
+.close:hover{
+	color: grey;
+}
+.box-header{
+	color: white;
+}
+.box{
+	background-color: white;
+	height: 300px;
+	width: 600px;
+	
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style type="text/css">
+	body{
+		background-color: #ff6666;
+	}
+</style>
+<script type="text/javascript" src="control.js"></script>
+</head>
+<body><center>
+	<h1>View Prices</h1>
+	Product: <input type="text" name="product" id="prod"><br><br>
+	Discount(in %): <input type="text" name="disc" id="discount"><br><br>
+	GST(in %): <input type="text" name="gst" id="gstid"><br><br>
+	<button onclick="show()">Show Prices</button><br><br>
+	Rate: <input type="text" name="disp" id="displ">
+</center>
+<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAeONk-f2Yi4bkcLLbdBNm-FAD6wjVw8l0",
+    authDomain: "stock-manager-89d20.firebaseapp.com",
+    databaseURL: "https://stock-manager-89d20.firebaseio.com",
+    projectId: "stock-manager-89d20",
+    storageBucket: "stock-manager-89d20.appspot.com",
+    messagingSenderId: "1055440467629"
+  };
+  firebase.initializeApp(config);
+</script>
+<script type="text/javascript">
+	var databaseRef=firebase.database();
+	function show(){
+		var product=document.getElementById("prod").value;
+		var discount=document.getElementById("discount").value;
+		var gst=document.getElementById("gstid").value;
+		var priceRef=databaseRef.ref('/prod/'+product+'/Price');
+		priceRef.on('value',function(snapshot){
+			var rate=snapshot.val();
+			rate=rate-(rate*discount/100);
+		rate=rate+(rate*gst/100);
+		document.getElementById("displ").value=rate;
+		});
+		
+	}
+</script>
+</body>
+</html>

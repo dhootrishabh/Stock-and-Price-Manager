@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style type="text/css">
+	body{
+		background-color: #ff6666;
+	}
+</style>
+<script type="text/javascript" src="control.js"></script>
+</head>
+<body><center>
+	<h1>Add new product</h1>
+<form name="form1">
+	Product<input type="text" name="product" id="prod"><br><br>
+	Price<input type="text" name="price" id="cost"><br><br>
+	Stock<input type="number" name="stock" id="stock"><br><br>
+	<button type="submit" class="btn btn-primary btn-lg" onclick="enter()">Add</button>
+</form></center>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAeONk-f2Yi4bkcLLbdBNm-FAD6wjVw8l0",
+    authDomain: "stock-manager-89d20.firebaseapp.com",
+    databaseURL: "https://stock-manager-89d20.firebaseio.com",
+    projectId: "stock-manager-89d20",
+    storageBucket: "stock-manager-89d20.appspot.com",
+    messagingSenderId: "1055440467629"
+  };
+  firebase.initializeApp(config);
+</script>
+<script type="text/javascript">
+	var databaseRef=firebase.database();
+	function enter(){
+		var product=document.getElementById("prod").value;
+		var price=document.getElementById("cost").value;
+		var stock=document.getElementById("stock").value;
+		var productRef=databaseRef.ref("/prod/"+product);
+		productRef.set({
+			Price: price,
+			Stock: stock
+		});
+
+	}
+</script>
+</body>
+</html>
