@@ -3,59 +3,23 @@
 <head>
 	<title>Stock Management</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<style type="text/css">
-		body{
-	background-color: #ff6666;
-}
-.box-head{
-	background-color: #ff6666;
-	color: white;
-	font-size: 36px;
-	font-family: Calibri;
-	text-align: left;
-	border-radius: 5px;
-}
-.head-text{
-	padding-left: 10px;
-}
-.close{
-	text-align: right;
-	/*margin-right: 15px;
-	margin-top: 10px;*/
-	padding: 15px;
-	size: 20px;
-}
-.close:hover{
-	color: white;
-	background-color: grey;
-}
-.box-header{
-	color: white;
-}
-.box{
-	margin: 150px 550px;
-	background-color: white;
-	height: 400px;
-	width: 400px;
-	border-width: 1px;
-	border-style: solid;
-	border-color: white;
-	border-radius: 5px;
-	box-shadow: 3px 3px 3px grey;
-	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-<div class="mv-tile box">
+<div class="modal">
 
-	<div class="box-content">
-		<div class="box-head"><p class="head-text">Select a choice<span class="close">&times</span></p></div>
-		<div class="box-body">
-<button type="button" class="button">Stock</button>
-		
-<a href="price.html"><button type="button" class="button">Rate</button></a>
-<a href="new.html"><button type="button" class="button">New Product</button></a>
+	<div class="modal-content">
+		<div class="modal-head">
+			<p class="modal-title">Select a choice<span class="close">&times</span></p>
+		</div>
+		<div class="modal-body">
+			<button type="button" class="button">Stock</button>
+			<a href="price.html"><button type="button" class="button btn btn-primary">Rate</button></a>
+			<a href="new.html"><button type="button" class="button">New Product</button></a>
+		</div>
 	</div>
-</div>
 </div>
 </body>
 </html>

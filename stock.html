@@ -12,15 +12,13 @@
 </head>
 <body>
 	<center>
-	<h1>View Prices</h1>
+	<h1>View Stock</h1>
 	Product: <input type="text" name="product" id="prod"><br><br>
 	<input type="radio" name="all" id="allprod"> All Product<br><br>
-	Discount(in %): <input type="text" name="disc" id="discount"><br><br>
-	GST(in %): <input type="text" name="gst" id="gstid"><br><br>
-	<button onclick="show()">Show Prices</button><br><br>
+	<button onclick="show()">Show Stock</button><br><br>
 	
 <table id="table" border="1" cellpadding="20px">
-	<tr><th>Product</th><th>Rate</th></tr>
+	<tr><th>Product</th><th>Stock</th></tr>
 </table>
 
 </center>
@@ -41,40 +39,31 @@
 <script type="text/javascript">
 	var databaseRef=firebase.database();
 	function show(){
-			var i=1;
 			var product=document.getElementById("prod").value;
 			var all=document.getElementById("allprod").checked;
-			var discount=document.getElementById("discount").value;
-			var gst=document.getElementById("gstid").value;
 			var table=document.getElementById("table");
 		if(!all){
 
-			var priceRef=databaseRef.ref('/prod/'+product+'/Price');
+			var priceRef=databaseRef.ref('/prod/'+product+'/Stock');
 			priceRef.on('value',function(snapshot){
-					var rate=snapshot.val();
-					rate=rate-(rate*discount/100);
-				rate=rate+(rate*gst/100);
-				var row=table.insertRow(i);
+					var stock=snapshot.val();
+				var row=table.insertRow(1);
 				row.insertCell(0).innerHTML=product;
-				row.insertCell(1).innerHTML=rate;
-				i=i+1;
+				row.insertCell(1).innerHTML=stock;
 			});
 		}
 		else{
-			i=1;
 			var prodRef=databaseRef.ref('/prod');
 			prodRef.on('child_added',function(snapshot){
 				a=snapshot.key;
-					var priceRef=databaseRef.ref('/prod/'+a+'/Price');
-					priceRef.once('value',function(snapshot){
-						var rate=snapshot.val();
-						rate=rate-(rate*discount/100);
-						rate=rate+(rate*gst/100);
-						var row=table.insertRow(i);
+					var priceRef=databaseRef.ref('/prod/'+a+'/Stock');
+					priceRef.on('value',function(snapshot){
+						var stock=snapshot.val();
+						var row=table.insertRow(1);
 						row.insertCell(0).innerHTML=a;
-						row.insertCell(1).innerHTML=rate;
-						i=i+1;
+						row.insertCell(1).innerHTML=stock;
 					});
+
 			});
 		}
 	}

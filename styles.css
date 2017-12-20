@@ -1,7 +1,7 @@
 body{
 	background-color: #ff6666;
 }
-.box-head{
+.modal-head{
 	background-color: #ff6666;
 	color: white;
 	font-size: 36px;
@@ -14,12 +14,12 @@ body{
 .close:hover{
 	color: grey;
 }
-.box-header{
+.modal-title{
 	color: white;
 }
-.box{
+.modal{
+	margin: 300px 400px;
+	display:block; 
 	background-color: white;
-	height: 300px;
-	width: 600px;
 	
 }
