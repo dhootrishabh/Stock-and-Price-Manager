@@ -10,16 +10,19 @@ body{
 }
 .close{
 	text-align: right;
+	padding: 15px;
 }
 .close:hover{
 	color: grey;
 }
 .modal-title{
+	padding-left: 20px;
 	color: white;
 }
 .modal{
-	margin: 300px 400px;
+	margin: 320px 450px;
 	display:block; 
 	background-color: white;
+	border-radius: 5px;
 	
 }
