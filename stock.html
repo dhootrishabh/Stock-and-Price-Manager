@@ -1,72 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style type="text/css">
-	</style>
 	<title>new</title>
-<style type="text/css">
-	body{
-		background-color: #ff6666;
-	}
-</style>
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+	<div class="nevbar">
+		<table class="nevdata">
+			<tr><th><a href="stock.html">Manage Stock</a></th>
+				<th><a href="price.html">Price List</a></th>
+				<th><a href="new.html">Update Database</a></th></tr>
+		</table>
+	</div>
+	<div class="content">
 	<center>
 	<h1>View Stock</h1>
-	Product: <input type="text" name="product" id="prod"><br><br>
-	<input type="radio" name="all" id="allprod"> All Product<br><br>
-	<button onclick="show()">Show Stock</button><br><br>
+	<p>Product: <input type="text" name="product" id="prod"><br></p>
+	<p><input type="checkbox" name="all" id="allprod"> All Product<br></p>
+	<button onclick="showStock()">Show Stock</button><br><br>
 	
-<table id="table" border="1" cellpadding="20px">
+<table class="table" id="table" border="1" style="width: 500px;">
 	<tr><th>Product</th><th>Stock</th></tr>
 </table>
 
 </center>
-
+</div>
 <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAeONk-f2Yi4bkcLLbdBNm-FAD6wjVw8l0",
-    authDomain: "stock-manager-89d20.firebaseapp.com",
-    databaseURL: "https://stock-manager-89d20.firebaseio.com",
-    projectId: "stock-manager-89d20",
-    storageBucket: "stock-manager-89d20.appspot.com",
-    messagingSenderId: "1055440467629"
-  };
-  firebase.initializeApp(config);
-</script>
-<script type="text/javascript">
-	var databaseRef=firebase.database();
-	function show(){
-			var product=document.getElementById("prod").value;
-			var all=document.getElementById("allprod").checked;
-			var table=document.getElementById("table");
-		if(!all){
-
-			var priceRef=databaseRef.ref('/prod/'+product+'/Stock');
-			priceRef.on('value',function(snapshot){
-					var stock=snapshot.val();
-				var row=table.insertRow(1);
-				row.insertCell(0).innerHTML=product;
-				row.insertCell(1).innerHTML=stock;
-			});
-		}
-		else{
-			var prodRef=databaseRef.ref('/prod');
-			prodRef.on('child_added',function(snapshot){
-				a=snapshot.key;
-					var priceRef=databaseRef.ref('/prod/'+a+'/Stock');
-					priceRef.on('value',function(snapshot){
-						var stock=snapshot.val();
-						var row=table.insertRow(1);
-						row.insertCell(0).innerHTML=a;
-						row.insertCell(1).innerHTML=stock;
-					});
-
-			});
-		}
-	}
-</script>
+<script src="controls.js"></script>
 </body>
 </html>
