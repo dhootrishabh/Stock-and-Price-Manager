@@ -25,7 +25,7 @@
 		<h1>Add new product</h1>
 		<p>Product <input type="text" name="product" id="newProduct"><br></p>
 		<p>Price <input type="text" name="price" id="cost"><br></p>
-		<p>Stock <input type="number" name="stock" id="stock"><br></p>
+		<p>Stock <input type="text" name="stock" id="stock"><br></p>
 		<button onclick="enter()">Add</button>
 	</div>
 	<div id="updatePrice" style="display:none;">
@@ -37,7 +37,7 @@
 	<div id="updateStock" style="display:none;">
 		<h1>Update Stock</h1>
 		<p>Product <input type="text" name="product" id="updateStockProduct"><br></p>
-		<p>Stock <input type="number" name="stockChange" id="stockChange"><br></p>
+		<p>Stock <input type="text" name="stockChange" id="stockChange"><br></p>
 		<p><input type="radio" name="opt" value="add"> Increase
 		<input type="radio" name="opt" value="sub"> Decrease<br></p>
 		<button onclick="updateStock()">Update Stock</button>

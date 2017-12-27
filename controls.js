@@ -135,44 +135,47 @@ function updatePrice(){
 		if(product==""){
 			alert("Enter a valid Product Name");
 		}
-		var price=document.getElementById("updatedCost").value;
-		var productRef=databaseRef.ref('/prod/'+product);
-		productRef.update({
-			Price: price
-		});
+		else{
+			var price=document.getElementById("updatedCost").value;
+			var productRef=databaseRef.ref('/prod/'+product);
+			productRef.update({
+				Price: price
+			});
+		}
+
 	}
 
 function updateStock(){
 	var item=document.getElementById("updateStockProduct").value;
-	if(product==""){
+	if(item==""){
 		alert("Enter a valid Product Name");
 	}
-	var change=document.getElementById("stockChange").value;
-	change=parseInt(change);
-	
-	var choice=document.getElementsByName("opt");
-	var productRef=databaseRef.ref('/prod/'+item+'/Stock');
-	productRef.once('value',function(snapshot){
-		var data=snapshot.val();
-		
-		data=parseInt(data);
-		if(choice[0].checked){
-			stock=data+change;
-		}
-		else{
-			if((data-change)<0){
-				alert("Negative Stock. This operation is not allowed");
+	else{
+		var change=document.getElementById("stockChange").value;
+		change=parseInt(change);
+		var choice=document.getElementsByName("opt");
+		var productRef=databaseRef.ref('/prod/'+item+'/Stock');
+		productRef.once('value',function(snapshot){
+			var data=snapshot.val();
+			data=parseInt(data);
+			if(choice[0].checked){
+				stock=data+change;
 			}
 			else{
-				stock=data-change;
+				if((data-change)<0){
+					alert("Negative Stock. This operation is not allowed");
+				}
+				else{
+					stock=data-change;
+				}
 			}
-		}
-		stock=stock.toString();
-		var stockChangeRef=databaseRef.ref('/prod/'+item);
-		stockChangeRef.update({
-			Stock: stock
+			stock=stock.toString();
+			var stockChangeRef=databaseRef.ref('/prod/'+item);
+			stockChangeRef.update({
+				Stock: stock
+			});
 		});
-	});
+	}
 }
 
 	function add(){
