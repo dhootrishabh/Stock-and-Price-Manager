@@ -19,12 +19,17 @@
 			var all=document.getElementById("allprod").checked;
 			var discount=document.getElementById("discount").value;
 			var gst=document.getElementById("gstid").value;
+			var qty=document.getElementById("qty").value;
 			var table=document.getElementById("table");
+			var rateTable=document.getElementById("rateTable");
 			if(discount==""){
 				discount=0;
 			}
 			if(gst==""){
 				gst=0;
+			}
+			if(qty==""){
+				qty=0;
 			}
 		if(!all){
 
@@ -37,12 +42,21 @@
 					else{
 						discounted=price-(price*discount/100);
 						rate=discounted+(discounted*gst/100);
+						var net=rate*qty;
 						var row=table.insertRow(i);
 						row.insertCell(0).innerHTML=product;
 						row.insertCell(1).innerHTML="Rs. "+price;
 						row.insertCell(2).innerHTML=discount+" %";
 						row.insertCell(3).innerHTML=gst+" %";
 						row.insertCell(4).innerHTML="Rs. "+rate;
+						row.insertCell(5).innerHTML=qty;
+						row.insertCell(6).innerHTML="Rs. "+net;
+
+						var rateRow=rateTable.insertRow(i);
+						rateRow.insertCell(0).innerHTML=product;
+						rateRow.insertCell(1).innerHTML="Rs. "+rate;
+						rateRow.insertCell(2).innerHTML=qty;
+						rateRow.insertCell(3).innerHTML="Rs. "+net;
 						i=i+1;
 					}
 			});
@@ -57,12 +71,21 @@
 						var price=snapshot.val();
 						discounted=price-(price*discount/100);
 						rate=discounted+(discounted*gst/100);
+						var net=rate*qty;
 						var row=table.insertRow(i);
 						row.insertCell(0).innerHTML=a;
 						row.insertCell(1).innerHTML="Rs. "+price;
 						row.insertCell(2).innerHTML=discount+" %";
 						row.insertCell(3).innerHTML=gst+" %";
 						row.insertCell(4).innerHTML="Rs. "+rate;
+						row.insertCell(5).innerHTML=qty;
+						row.insertCell(6).innerHTML="Rs. "+net;
+
+						var rateRow=rateTable.insertRow(i);
+						rateRow.insertCell(0).innerHTML=a;
+						rateRow.insertCell(1).innerHTML="Rs. "+rate;
+						rateRow.insertCell(2).innerHTML=qty;
+						rateRow.insertCell(3).innerHTML="Rs. "+net;
 						i=i+1;
 					});
 			});

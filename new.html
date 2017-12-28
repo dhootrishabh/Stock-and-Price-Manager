@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>new</title>
-	<link rel="stylesheet" type="text/css" href="styles.css">
+  <title>Price List and Stock Manager</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
-	<div class="nevbar">
-		<table class="nevdata">
-			<tr><th><a href="stock.html">Manage Stock</a></th>
-				<th><a href="price.html">Price List</a></th>
-				<th><a href="new.html">Update Database</a></th></tr>
-		</table>
-		
-		
-	</div>
-	<div class="content">
+  <div class="nevbar">
+    <table class="nevdata">
+      <tr><th><a href="stock.html">Manage Stock</a></th>
+        <th><a href="price.html">Price List</a></th>
+        <th><a href="new.html">Update Database</a></th></tr>
+    </table>
+    
+    
+  </div>
+  <div class="content">
 <center>
-	<br><br>
-	<p><button name="selection" onclick="add()">Add New Product</button>
-	<button name="selection" onclick="upPrice()">Update Price of Product</button>
-	<button name="selection" onclick="upStock()">Update Stock of Product</button></p>
-	<div id="new" style="display:block;">
-		<h1>Add new product</h1>
-		<p>Product <input type="text" name="product" id="newProduct"><br></p>
-		<p>Price <input type="text" name="price" id="cost"><br></p>
-		<p>Stock <input type="text" name="stock" id="stock"><br></p>
-		<button onclick="enter()">Add</button>
-	</div>
-	<div id="updatePrice" style="display:none;">
-		<h1>Update Price</h1>
-		<p>Product <input type="text" name="product" id="updatePriceProduct"><br></p>
-		<p>Price <input type="text" name="price" id="updatedCost"><br></p>
-		<button onclick="updatePrice()">Update Price</button>
-	</div>
-	<div id="updateStock" style="display:none;">
-		<h1>Update Stock</h1>
-		<p>Product <input type="text" name="product" id="updateStockProduct"><br></p>
-		<p>Stock <input type="text" name="stockChange" id="stockChange"><br></p>
-		<p><input type="radio" name="opt" value="add"> Increase
-		<input type="radio" name="opt" value="sub"> Decrease<br></p>
-		<button onclick="updateStock()">Update Stock</button>
-	</div>
-	
+  <br><br>
+  <p><button name="selection" onclick="add()">Add New Product</button>
+  <button name="selection" onclick="upPrice()">Update Price of Product</button>
+  <button name="selection" onclick="upStock()">Update Stock of Product</button></p>
+  <div id="new" style="display:block;">
+    <h1>Add new product</h1>
+    <p>Product <input type="text" name="product" id="newProduct"><br></p>
+    <p>Price <input type="text" name="price" id="cost"><br></p>
+    <p>Stock <input type="text" name="stock" id="stock"><br></p>
+    <button onclick="enter()">Add</button>
+  </div>
+  <div id="updatePrice" style="display:none;">
+    <h1>Update Price</h1>
+    <p>Product <input type="text" name="product" id="updatePriceProduct"><br></p>
+    <p>Price <input type="text" name="price" id="updatedCost"><br></p>
+    <button onclick="updatePrice()">Update Price</button>
+  </div>
+  <div id="updateStock" style="display:none;">
+    <h1>Update Stock</h1>
+    <p>Product <input type="text" name="product" id="updateStockProduct"><br></p>
+    <p>Stock <input type="text" name="stockChange" id="stockChange"><br></p>
+    <p><input type="radio" name="opt" value="add"> Increase
+    <input type="radio" name="opt" value="sub"> Decrease<br></p>
+    <button onclick="updateStock()">Update Stock</button>
+  </div>
+  
 </center>
 </div>
 <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>

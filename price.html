@@ -3,7 +3,7 @@
 <head>
 	<style type="text/css">
 	</style>
-	<title>new</title>
+  <title>Price List and Stock Manager</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
@@ -19,18 +19,26 @@
 	<div class="content">
 	<center>
 	<h1>View Prices</h1>
-	<p>Product: <input type="text" name="product" id="prod"><br></p>
+	<p>Product <input type="text" name="product" id="prod"><br></p>
 	<p><input type="checkbox" name="all" id="allprod"> All Product<br></p>
-	<p>Discount(in %): <input type="text" name="disc" id="discount"><br></p>
-	<p>GST(in %): <input type="text" name="gst" id="gstid"><br></p>
+	<p>Discount(in %) <input type="text" name="disc" id="discount"><br></p>
+	<p>GST(in %) <input type="text" name="gst" id="gstid"><br></p>
+	<p>Quantity <input type="text" name="qty" id="qty"><br></p>
 	<button onclick="show()">Show Prices</button><br><br>
 <div id="tablediv">
-	<table class="table" id="table" border="1" style="width: 500px;">
-		<tr><th>Product</th><th>Price</th><th>Discount</th><th>GST</th><th>Rate</th></tr>
+	<table class="table" id="table">
+		<tr><th>Product</th><th>Price</th><th>Discount</th><th>GST</th><th>Rate</th><th>Qty.</th><th>Net Amount</th></tr>
 	</table>
 </div>
 <br>
-<button onclick="printCon('tablediv')">Print</button>
+<br>
+<div id="rateTableDiv">
+	<table class="table" id="rateTable">
+		<tr><th>Product</th><th>Rate</th><th>Quantity</th><th>Net Amount</th></tr>
+	</table>
+</div>
+<br>
+<button onclick="printCon('rateTableDiv')">Print</button>
 
 </center>
 </div>

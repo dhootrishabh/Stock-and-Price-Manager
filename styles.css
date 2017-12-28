@@ -41,10 +41,10 @@ td,th{
 	padding: 5px;
 
 }
-#table{
+#table,#rateTable{
 	border: 3px solid black;
 	border-radius: 5px;
-
+	width: 500px;
 }
 button{
 	font-size: 18px;
